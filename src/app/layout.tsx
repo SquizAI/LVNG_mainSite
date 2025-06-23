@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     creator: '@lvng_ai',
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    icon: '/LVNG_icon.png',
+    shortcut: '/LVNG_icon.png',
+    apple: '/LVNG_icon.png',
   },
   manifest: '/site.webmanifest',
 }

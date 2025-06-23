@@ -722,7 +722,7 @@ const GetStartedPage: React.FC = () => {
                       ? 'opacity-50 cursor-not-allowed' 
                       : 'text-gray-300 hover:text-white'
                   }`}
-                  leftIcon={<ArrowLeft className="h-4 w-4" />}
+                  icon={<ArrowLeft className="h-4 w-4" />}
                 >
                   Previous
                 </Button>

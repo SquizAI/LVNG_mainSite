@@ -249,6 +249,9 @@ Focus on AI integration, enterprise solutions, and technical implementation need
       discovery: 'Discovery Workshop - comprehensive assessment of your current state and needs'
     }
 
+    const consultationType = recommendedConsultationType || 'discovery'
+    const followUpTime = urgencyMapping[urgency] || 'within 24 hours'
+
     return {
       subject: `AI Integration Opportunity - ${company} | ${urgency.toUpperCase()} Priority`,
       content: `
@@ -256,9 +259,9 @@ Dear ${firstName},
 
 Thank you for your interest in AI integration services. Based on your inquiry, we've identified this as a ${urgency} priority project focusing on ${categories.join(', ')}.
 
-We recommend starting with our ${consultationMapping[recommendedConsultationType]}.
+We recommend starting with our ${consultationMapping[consultationType]}.
 
-Our team will follow up ${urgencyMapping[urgency]} to discuss your specific requirements and create a tailored implementation strategy.
+Our team will follow up ${followUpTime} to discuss your specific requirements and create a tailored implementation strategy.
 
 Best regards,
 The LVNG.ai Team

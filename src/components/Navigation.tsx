@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Zap, ArrowRight } from 'lucide-react'
+import { Menu, X, ArrowRight } from 'lucide-react'
 import { Button } from './ui/Button'
+import Image from 'next/image'
 
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -42,10 +43,16 @@ const Navigation: React.FC = () => {
             className="flex items-center gap-3"
           >
             <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-                <Zap className="h-6 w-6 text-white" />
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/LVNG_icon.png"
+                  alt="LVNG.ai Logo"
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl blur opacity-30 animate-pulse-slow"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl blur opacity-20 animate-pulse-slow"></div>
             </div>
             <span className="text-2xl font-bold text-gradient">LVNG.ai</span>
           </motion.div>
