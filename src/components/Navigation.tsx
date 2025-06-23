@@ -42,17 +42,14 @@ const Navigation: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="flex items-center gap-3"
           >
-            <div className="relative">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden">
-                <Image
-                  src="/LVNG_icon.png"
-                  alt="LVNG.ai Logo"
-                  width={40}
-                  height={40}
-                  className="object-contain"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl blur opacity-20 animate-pulse-slow"></div>
+            <div className="flex items-center">
+              <Image
+                src="/LVNG_icon.png"
+                alt="LVNG.ai Logo"
+                width={48}
+                height={48}
+                className="object-contain"
+              />
             </div>
             <span className="text-2xl font-bold text-gradient">LVNG.ai</span>
           </motion.div>

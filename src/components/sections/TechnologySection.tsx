@@ -67,11 +67,11 @@ const TechnologySection: React.FC = () => {
     { name: 'Meta', logo: '/logos/meta.svg' }
   ]
 
-  const metrics = [
-    { value: '99.9%', label: 'System Uptime', icon: Shield },
-    { value: '10M+', label: 'Transactions/Day', icon: Zap },
-    { value: '50+', label: 'Countries Deployed', icon: Globe },
-    { value: '<100ms', label: 'Response Time', icon: Clock }
+  const techHighlights = [
+    { value: 'Multi-Model', label: 'AI Platform Support', icon: Shield },
+    { value: 'Real-Time', label: 'Processing', icon: Zap },
+    { value: 'Global', label: 'Deployment Ready', icon: Globe },
+    { value: 'Enterprise', label: 'Security Standards', icon: Clock }
   ]
 
   return (
@@ -104,7 +104,7 @@ const TechnologySection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Performance Metrics */}
+        {/* Technology Highlights */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -112,11 +112,11 @@ const TechnologySection: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
         >
-          {metrics.map((metric, index) => (
+          {techHighlights.map((highlight, index) => (
             <div key={index} className="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
-              <metric.icon className="w-8 h-8 text-blue-400 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-white mb-1">{metric.value}</div>
-              <div className="text-gray-400 text-sm">{metric.label}</div>
+              <highlight.icon className="w-8 h-8 text-blue-400 mx-auto mb-3" />
+              <div className="text-lg font-bold text-white mb-1">{highlight.value}</div>
+              <div className="text-gray-400 text-sm">{highlight.label}</div>
             </div>
           ))}
         </motion.div>

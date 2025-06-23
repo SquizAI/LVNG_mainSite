@@ -10,10 +10,10 @@ import {
   Linkedin, 
   Twitter, 
   Github,
-  Zap,
   ExternalLink
 } from 'lucide-react'
 import { Button } from './ui/Button'
+import Image from 'next/image'
 
 const Footer: React.FC = () => {
   const navigation = {
@@ -46,44 +46,9 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-gray-950 border-t border-gray-800">
-      <div className="container mx-auto px-6 py-16">
-        {/* Newsletter Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12 mb-16"
-        >
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Stay Updated on AI Innovation
-              </h3>
-              <p className="text-gray-400 text-lg">
-                Get insights on the latest AI technologies, implementation strategies, and industry trends delivered to your inbox.
-              </p>
-            </div>
-            <div className="space-y-4">
-              <div className="flex gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6">
-                  Subscribe
-                </Button>
-              </div>
-              <p className="text-sm text-gray-500">
-                No spam. Unsubscribe at any time. Read our <a href="/privacy" className="text-blue-400 hover:text-blue-300">Privacy Policy</a>.
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
+      <div className="container mx-auto px-6 py-12">
         {/* Main Footer Content */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <motion.div
@@ -95,48 +60,37 @@ const Footer: React.FC = () => {
             >
               {/* Logo */}
               <div className="flex items-center gap-3">
-                <div className="relative">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-                    <Zap className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl blur opacity-30 animate-pulse-slow"></div>
-                </div>
+                <Image
+                  src="/LVNG_icon.png"
+                  alt="LVNG.ai Logo"
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                />
                 <span className="text-2xl font-bold text-gradient">LVNG.ai</span>
               </div>
 
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed mb-6">
                 Full-stack AI development partner. We build and integrate AI solutions that deliver real business value.
               </p>
 
               {/* Contact Info */}
-              <div className="space-y-4">
-                <h4 className="text-lg font-semibold text-white">Get In Touch</h4>
-                <div className="space-y-3">
-                  <div>
-                    <div className="text-sm text-gray-500 mb-1">Enterprise Sales</div>
-                    <div className="flex items-center gap-3 text-gray-300">
-                      <Mail className="h-4 w-4 text-blue-400" />
-                      <a href="mailto:LVNG@prjctcode.ai" className="hover:text-white transition-colors">
-                        LVNG@prjctcode.ai
-                      </a>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-500 mb-1">Direct Line</div>
-                    <div className="flex items-center gap-3 text-gray-300">
-                      <Phone className="h-4 w-4 text-green-400" />
-                      <a href="tel:+15551234567" className="hover:text-white transition-colors">
-                        +1 (555) 123-4567
-                      </a>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-500 mb-1">Headquarters</div>
-                    <div className="flex items-center gap-3 text-gray-300">
-                      <MapPin className="h-4 w-4 text-purple-400" />
-                      <span>Miami, FL</span>
-                    </div>
-                  </div>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 text-gray-300">
+                  <Mail className="h-4 w-4 text-blue-400" />
+                  <a href="mailto:LVNG@prjctcode.ai" className="hover:text-white transition-colors">
+                    LVNG@prjctcode.ai
+                  </a>
+                </div>
+                <div className="flex items-center gap-3 text-gray-300">
+                  <Phone className="h-4 w-4 text-green-400" />
+                  <a href="tel:+15551234567" className="hover:text-white transition-colors">
+                    +1 (555) 123-4567
+                  </a>
+                </div>
+                <div className="flex items-center gap-3 text-gray-300">
+                  <MapPin className="h-4 w-4 text-purple-400" />
+                  <span>Miami, FL</span>
                 </div>
               </div>
 
@@ -189,7 +143,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-8 border-t border-gray-800">
+        <div className="pt-6 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <motion.div
               initial={{ opacity: 0 }}

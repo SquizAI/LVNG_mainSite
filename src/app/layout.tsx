@@ -9,6 +9,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://lvng.ai'),
   title: 'LVNG.ai - Next-Generation AI Integration for Enterprise',
   description: 'Transform your enterprise with autonomous AI systems that continuously evolve and optimize. From strategy to implementation - we architect your intelligent future.',
   keywords: ['AI integration', 'enterprise AI', 'autonomous AI', 'agentic AI', 'AI automation', 'AI consulting'],

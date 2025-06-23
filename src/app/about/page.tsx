@@ -20,11 +20,11 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
 const AboutPage: React.FC = () => {
-  const stats = [
-    { number: '50+', label: 'AI Projects Delivered', icon: Code2 },
-    { number: '15+', label: 'Industries Served', icon: Building2 },
-    { number: '99%', label: 'Client Satisfaction', icon: Award },
-    { number: '24/7', label: 'System Uptime', icon: Zap }
+  const highlights = [
+    { number: 'Full-Stack', label: 'AI Development', icon: Code2 },
+    { number: 'Multi-Industry', label: 'Experience', icon: Building2 },
+    { number: 'Enterprise', label: 'Security Standards', icon: Award },
+    { number: 'Ongoing', label: 'Support & Optimization', icon: Zap }
   ]
 
   const values = [
@@ -111,20 +111,20 @@ const AboutPage: React.FC = () => {
               </motion.p>
             </div>
 
-            {/* Stats */}
+            {/* Highlights */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
             >
-              {stats.map((stat, index) => (
-                <div key={stat.label} className="text-center">
+              {highlights.map((highlight, index) => (
+                <div key={highlight.label} className="text-center">
                   <div className="w-16 h-16 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
-                    <stat.icon className="h-8 w-8 text-blue-400" />
+                    <highlight.icon className="h-8 w-8 text-blue-400" />
                   </div>
-                  <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
-                  <div className="text-gray-400">{stat.label}</div>
+                  <div className="text-lg font-bold text-white mb-2">{highlight.number}</div>
+                  <div className="text-gray-400">{highlight.label}</div>
                 </div>
               ))}
             </motion.div>
