@@ -18,35 +18,22 @@ import { Button } from './ui/Button'
 const Footer: React.FC = () => {
   const navigation = {
     solutions: [
-      { name: 'AI Strategy & Consultation', href: '/solutions/ai-strategy' },
-      { name: 'Custom AI Development', href: '/solutions/custom-development' },
-      { name: 'Data Infrastructure', href: '/solutions/data-infrastructure' },
-      { name: 'System Integration', href: '/solutions/integration' },
-      { name: 'AI Governance & Security', href: '/solutions/governance' },
-      { name: 'Performance Optimization', href: '/solutions/optimization' }
+      { name: 'AI Strategy & Assessment', href: '/#services' },
+      { name: 'Custom AI Development', href: '/#services' },
+      { name: 'Integration & Implementation', href: '/#services' },
+      { name: 'Support & Optimization', href: '/#services' }
     ],
     services: [
       { name: 'Get Started', href: '/get-started' },
       { name: 'Schedule Consultation', href: '/consultation' },
       { name: 'Case Studies', href: '/case-studies' },
-      { name: 'Technology Stack', href: '/technology' },
-      { name: 'Implementation Process', href: '/process' },
-      { name: 'Pricing', href: '/pricing' }
+      { name: 'Technology', href: '/technology' }
     ],
     company: [
       { name: 'About Us', href: '/about' },
-      { name: 'Our Team', href: '/team' },
-      { name: 'Careers', href: '/careers' },
-      { name: 'Blog', href: '/blog' },
-      { name: 'Press Kit', href: '/press' },
       { name: 'Contact', href: '/contact' }
     ],
     resources: [
-      { name: 'Documentation', href: '/docs' },
-      { name: 'API Reference', href: '/api' },
-      { name: 'Support Center', href: '/support' },
-      { name: 'Status Page', href: '/status' },
-      { name: 'Security', href: '/security' },
       { name: 'Privacy Policy', href: '/privacy' }
     ]
   }
@@ -59,14 +46,14 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-gray-950 border-t border-gray-800">
-      <div className="container-width py-16">
+      <div className="container mx-auto px-6 py-16">
         {/* Newsletter Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="glass-card rounded-2xl p-8 md:p-12 mb-16"
+          className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12 mb-16"
         >
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
@@ -190,7 +177,9 @@ const Footer: React.FC = () => {
                       className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2 group"
                     >
                       <span>{link.name}</span>
-                      <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      {link.href.startsWith('http') && (
+                        <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      )}
                     </a>
                   </li>
                 ))}
@@ -209,7 +198,7 @@ const Footer: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="text-gray-500 text-sm"
             >
-              <p>&copy; 2024 LVNG.ai. All rights reserved.</p>
+              <p>&copy; 2025 LVNG.ai. All rights reserved.</p>
             </motion.div>
             
             <motion.div
@@ -219,14 +208,8 @@ const Footer: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="flex gap-6 text-sm"
             >
-              <a href="/terms" className="text-gray-500 hover:text-white transition-colors duration-300">
-                Terms of Service
-              </a>
               <a href="/privacy" className="text-gray-500 hover:text-white transition-colors duration-300">
                 Privacy Policy
-              </a>
-              <a href="/cookies" className="text-gray-500 hover:text-white transition-colors duration-300">
-                Cookie Policy
               </a>
             </motion.div>
           </div>
