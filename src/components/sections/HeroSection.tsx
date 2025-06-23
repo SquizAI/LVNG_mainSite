@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Phone, Brain, CheckCircle } from 'lucide-react'
+import { ArrowRight, Phone, CheckCircle, AlertCircle } from 'lucide-react'
 import { Button } from '../ui/Button'
 
 const HeroSection: React.FC = () => {
@@ -19,130 +19,98 @@ const HeroSection: React.FC = () => {
 
   return (
     <section className="relative min-h-screen bg-gray-950 overflow-hidden flex items-center">
-      {/* Animated Grid Background */}
+      {/* Subtle Grid Background */}
       <div className="absolute inset-0">
-        {/* Main Grid */}
         <div 
-          className="absolute inset-0 opacity-[0.03]" 
+          className="absolute inset-0 opacity-[0.02]" 
           style={{
             backgroundImage: `
-              linear-gradient(rgba(59, 130, 246, 0.4) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(59, 130, 246, 0.4) 1px, transparent 1px)
+              linear-gradient(rgba(59, 130, 246, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px)
             `,
-            backgroundSize: '60px 60px',
+            backgroundSize: '50px 50px',
           }}
         />
         
-        {/* Animated Grid Overlay */}
-        <motion.div 
-          className="absolute inset-0 opacity-[0.02]"
-          animate={{
-            backgroundPosition: ['0px 0px', '60px 60px'],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(139, 92, 246, 0.6) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139, 92, 246, 0.6) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
-          }}
-        />
-
-        {/* Gradient Spotlight Effect */}
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-950/95 to-gray-950" />
+        
+        {/* Subtle Moving Gradient */}
         <motion.div
-          className="absolute w-[1000px] h-[1000px] rounded-full blur-3xl pointer-events-none"
+          className="absolute w-[800px] h-[800px] rounded-full blur-3xl pointer-events-none"
           style={{
-            background: `radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.04) 35%, transparent 70%)`
+            background: `radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%)`
           }}
           animate={{
-            x: mousePosition.x - 500,
-            y: mousePosition.y - 500,
+            x: mousePosition.x - 400,
+            y: mousePosition.y - 400,
           }}
-          transition={{ type: "spring", damping: 50, stiffness: 50 }}
+          transition={{ type: "spring", damping: 30, stiffness: 50 }}
         />
-
-        {/* Corner Accent Gradients */}
-        <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-blue-900/[0.05] via-transparent to-transparent" />
-        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-purple-900/[0.05] via-transparent to-transparent" />
-        
-        {/* Floating Grid Dots */}
-        <div className="absolute inset-0">
-          {[...Array(8)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-blue-400/20 rounded-full"
-              style={{
-                left: `${15 + (i * 12)}%`,
-                top: `${20 + (i % 3) * 25}%`,
-              }}
-              animate={{
-                opacity: [0.2, 0.8, 0.2],
-                scale: [1, 1.5, 1],
-              }}
-              transition={{
-                duration: 3 + (i * 0.5),
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 0.3,
-              }}
-            />
-          ))}
-        </div>
       </div>
 
       <div className="container-width relative z-10 w-full">
-        <div className="max-w-5xl mx-auto text-center space-y-12">
+        <div className="max-w-5xl mx-auto">
           
-          {/* Positioning Badge */}
+          {/* Problem Statement */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-900/20 border border-blue-700/30 rounded-full text-blue-400 text-sm font-medium backdrop-blur-sm"
+            className="mb-8"
           >
-            <Brain className="h-4 w-4" />
-            <span>Full-Stack AI Integration Specialists</span>
-            <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse ml-2" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-900/20 border border-red-700/30 rounded-full text-red-400 text-sm font-medium backdrop-blur-sm">
+              <AlertCircle className="h-4 w-4" />
+              <span>65% of AI projects fail due to poor implementation</span>
+            </div>
           </motion.div>
 
           {/* Main Headline */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="space-y-6 mb-8"
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-              Stop Wasting Time on
+              Your Full-Stack
               <br />
-              <span className="relative">
-                <span className="text-gradient bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                  Repetitive Tasks
-                </span>
-                {/* Subtle glow effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-cyan-400/20 blur-xl"
-                  animate={{
-                    opacity: [0.3, 0.6, 0.3],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
+              <span className="text-gradient bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                AI Development Partner
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
-              We build and deploy AI systems that <strong className="text-white">automate your manual processes</strong>, 
-              so you can focus on growing your business instead of managing repetitive work.
+            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-3xl">
+              From strategy to implementation to optimization—we build and integrate 
+              AI solutions that actually work for your business.
             </p>
+          </motion.div>
+
+          {/* Value Props */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="grid md:grid-cols-3 gap-6 mb-12"
+          >
+            <div className="glass-card rounded-xl p-6 border border-gray-800">
+              <h3 className="font-semibold text-white mb-2">We Build</h3>
+              <p className="text-gray-400 text-sm">
+                Custom AI solutions tailored to your specific business needs and workflows
+              </p>
+            </div>
+            <div className="glass-card rounded-xl p-6 border border-gray-800">
+              <h3 className="font-semibold text-white mb-2">We Integrate</h3>
+              <p className="text-gray-400 text-sm">
+                Connect AI seamlessly with your existing systems and processes
+              </p>
+            </div>
+            <div className="glass-card rounded-xl p-6 border border-gray-800">
+              <h3 className="font-semibold text-white mb-2">We Optimize</h3>
+              <p className="text-gray-400 text-sm">
+                Continuous improvement and support to maximize your AI ROI
+              </p>
+            </div>
           </motion.div>
 
           {/* Key Benefits */}
@@ -150,78 +118,65 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto"
+            className="space-y-3 mb-12"
           >
             {[
-              { icon: CheckCircle, text: "Custom AI Development" },
-              { icon: CheckCircle, text: "System Integration" },
-              { icon: CheckCircle, text: "Complete Implementation" }
+              "Full-stack development from data infrastructure to user interfaces",
+              "Platform-agnostic: OpenAI, Anthropic, Google, or custom models",
+              "Long-term partnership, not one-off projects",
+              "Proven methodology that reduces implementation risk"
             ].map((benefit, index) => (
               <motion.div
-                key={benefit.text}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                className="flex items-center gap-3 text-gray-300 bg-gray-900/30 backdrop-blur-sm border border-gray-700/30 rounded-full px-6 py-3 hover:bg-gray-900/50 transition-all duration-300"
+                className="flex items-center gap-3 text-gray-300"
               >
-                <benefit.icon className="h-5 w-5 text-green-400" />
-                <span className="font-medium">{benefit.text}</span>
+                <CheckCircle className="h-5 w-5 text-green-400 flex-shrink-0" />
+                <span>{benefit}</span>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Primary CTAs */}
+          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-4"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <Button
+              size="xl"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg shadow-blue-600/20"
+              rightIcon={<ArrowRight className="h-5 w-5" />}
+              href="/get-started"
             >
-              <Button
-                size="xl"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-xl shadow-blue-600/25 text-lg font-semibold px-8 py-4 relative overflow-hidden group"
-                rightIcon={<Phone className="h-5 w-5" />}
-                href="/consultation"
-              >
-                <span className="relative z-10">Schedule Free Consultation</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-              </Button>
-            </motion.div>
+              Start Your AI Journey
+            </Button>
             
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <Button
+              size="xl"
+              variant="outline"
+              className="border-gray-700 text-gray-300 hover:bg-gray-900 hover:text-white hover:border-gray-600"
+              rightIcon={<Phone className="h-4 w-4" />}
+              href="/consultation"
             >
-              <Button
-                size="xl"
-                variant="outline"
-                className="border-2 border-gray-600 text-gray-300 hover:bg-gray-800/50 hover:text-white hover:border-gray-500 text-lg font-semibold px-8 py-4 backdrop-blur-sm"
-                rightIcon={<ArrowRight className="h-5 w-5" />}
-                href="/get-started"
-              >
-                See How It Works
-              </Button>
-            </motion.div>
+              Schedule Free Consultation
+            </Button>
           </motion.div>
 
-          {/* Trust Line */}
+          {/* Trust Indicators */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1 }}
-            className="text-sm text-gray-500 bg-gray-900/20 backdrop-blur-sm border border-gray-800/50 rounded-full px-6 py-3 inline-block"
+            className="mt-12 pt-12 border-t border-gray-800"
           >
-            <span className="text-green-400">✓</span> No commitment required 
-            <span className="mx-2">•</span>
-            <span className="text-green-400">✓</span> Free 30-minute consultation 
-            <span className="mx-2">•</span>
-            Direct contact: <a href="mailto:LVNG@prjctcode.ai" className="text-blue-400 hover:text-blue-300 transition-colors">LVNG@prjctcode.ai</a>
+            <p className="text-sm text-gray-500 text-center">
+              Helping businesses implement AI successfully • No vendor lock-in • 
+              Solutions that scale with your growth
+            </p>
           </motion.div>
         </div>
       </div>

@@ -3,129 +3,128 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { 
-  Server, 
-  Database, 
-  Cloud, 
-  Cpu, 
+  Brain,
   Code2,
-  GitBranch,
+  Database,
   Shield,
-  Zap
+  Workflow,
+  Cloud,
+  Sparkles,
+  ArrowRight,
+  Cpu,
+  Network,
+  Lock,
+  Gauge
 } from 'lucide-react'
+import { Button } from '../ui/Button'
 
 const TechnologySection: React.FC = () => {
-  const techCategories = [
+  const technologies = [
     {
-      title: 'AI & Machine Learning',
-      icon: Cpu,
-      color: 'from-blue-500 to-cyan-500',
-      technologies: [
-        { name: 'OpenAI GPT-4.1', type: 'LLM' },
-        { name: 'Claude 3.5 Sonnet', type: 'LLM' },
-        { name: 'Gemini 2.0', type: 'LLM' },
-        { name: 'TensorFlow', type: 'Framework' },
-        { name: 'PyTorch', type: 'Framework' },
-        { name: 'Hugging Face', type: 'Platform' },
-        { name: 'LangChain', type: 'Agent Framework' },
-        { name: 'CrewAI', type: 'Multi-Agent' }
+      category: 'Foundation Models',
+      icon: Brain,
+      description: 'We integrate the best AI models for your specific needs',
+      items: [
+        { name: 'OpenAI GPT-4', type: 'Language & Reasoning' },
+        { name: 'Anthropic Claude', type: 'Safe & Reliable AI' },
+        { name: 'Google Gemini', type: 'Multimodal Processing' },
+        { name: 'Meta LLaMA', type: 'On-Premise Solutions' }
       ]
     },
     {
-      title: 'Cloud & Infrastructure',
-      icon: Cloud,
-      color: 'from-purple-500 to-pink-500',
-      technologies: [
-        { name: 'AWS', type: 'Cloud Provider' },
-        { name: 'Google Cloud', type: 'Cloud Provider' },
-        { name: 'Microsoft Azure', type: 'Cloud Provider' },
-        { name: 'Kubernetes', type: 'Orchestration' },
-        { name: 'Docker', type: 'Containerization' },
-        { name: 'Terraform', type: 'IaC' },
-        { name: 'Pulumi', type: 'IaC' },
-        { name: 'Istio', type: 'Service Mesh' }
+      category: 'Agent Frameworks',
+      icon: Network,
+      description: 'Multi-agent systems that work together autonomously',
+      items: [
+        { name: 'LangChain', type: 'Production-Ready Agents' },
+        { name: 'CrewAI', type: 'Collaborative AI Teams' },
+        { name: 'AutoGen', type: 'Microsoft Enterprise' },
+        { name: 'Custom Frameworks', type: 'Tailored Solutions' }
       ]
     },
     {
-      title: 'Data & Analytics',
+      category: 'Data Infrastructure',
       icon: Database,
-      color: 'from-green-500 to-emerald-500',
-      technologies: [
-        { name: 'Apache Kafka', type: 'Streaming' },
-        { name: 'Apache Spark', type: 'Processing' },
-        { name: 'PostgreSQL', type: 'Database' },
-        { name: 'MongoDB', type: 'NoSQL' },
-        { name: 'Redis', type: 'Cache' },
-        { name: 'Elasticsearch', type: 'Search' },
-        { name: 'Snowflake', type: 'Warehouse' },
-        { name: 'dbt', type: 'Transformation' }
+      description: 'Enterprise-grade data systems for AI operations',
+      items: [
+        { name: 'Vector Databases', type: 'Pinecone, Weaviate' },
+        { name: 'Data Pipelines', type: 'Real-time Processing' },
+        { name: 'Knowledge Graphs', type: 'Semantic Understanding' },
+        { name: 'Cloud Platforms', type: 'AWS, Azure, GCP' }
       ]
     },
     {
-      title: 'Development & Integration',
-      icon: Code2,
-      color: 'from-orange-500 to-red-500',
-      technologies: [
-        { name: 'Python', type: 'Language' },
-        { name: 'TypeScript', type: 'Language' },
-        { name: 'Go', type: 'Language' },
-        { name: 'Rust', type: 'Language' },
-        { name: 'FastAPI', type: 'Framework' },
-        { name: 'Next.js', type: 'Framework' },
-        { name: 'GraphQL', type: 'API' },
-        { name: 'gRPC', type: 'RPC' }
+      category: 'Integration Tools',
+      icon: Workflow,
+      description: 'Seamless connection to your existing systems',
+      items: [
+        { name: 'API Orchestration', type: 'RESTful & GraphQL' },
+        { name: 'Enterprise Systems', type: 'SAP, Salesforce, Oracle' },
+        { name: 'Workflow Automation', type: 'Zapier, Make, n8n' },
+        { name: 'Custom Connectors', type: 'Legacy System Bridge' }
       ]
     },
     {
-      title: 'DevOps & Monitoring',
-      icon: Server,
-      color: 'from-indigo-500 to-purple-500',
-      technologies: [
-        { name: 'GitHub Actions', type: 'CI/CD' },
-        { name: 'Jenkins', type: 'CI/CD' },
-        { name: 'Prometheus', type: 'Monitoring' },
-        { name: 'Grafana', type: 'Visualization' },
-        { name: 'Jaeger', type: 'Tracing' },
-        { name: 'Helm', type: 'Packaging' },
-        { name: 'Ansible', type: 'Automation' },
-        { name: 'ArgoCD', type: 'GitOps' }
-      ]
-    },
-    {
-      title: 'Security & Governance',
+      category: 'Security & Compliance',
       icon: Shield,
-      color: 'from-teal-500 to-blue-500',
-      technologies: [
-        { name: 'Vault', type: 'Secrets' },
-        { name: 'Keycloak', type: 'Identity' },
-        { name: 'OPA', type: 'Policy' },
-        { name: 'Falco', type: 'Runtime Security' },
-        { name: 'Cert-Manager', type: 'TLS' },
-        { name: 'SPIFFE/SPIRE', type: 'Identity' },
-        { name: 'Cilium', type: 'Network Security' },
-        { name: 'Trivy', type: 'Vulnerability Scanning' }
+      description: 'Enterprise security and regulatory compliance',
+      items: [
+        { name: 'Data Encryption', type: 'End-to-End Security' },
+        { name: 'Access Control', type: 'Role-Based Permissions' },
+        { name: 'Audit Trails', type: 'Complete Traceability' },
+        { name: 'Compliance Tools', type: 'GDPR, HIPAA, SOC2' }
+      ]
+    },
+    {
+      category: 'Performance & Scale',
+      icon: Gauge,
+      description: 'Built for enterprise performance and growth',
+      items: [
+        { name: 'Load Balancing', type: 'Distributed Processing' },
+        { name: 'Auto-Scaling', type: 'Dynamic Resources' },
+        { name: 'Monitoring', type: 'Real-time Analytics' },
+        { name: 'Optimization', type: 'Cost & Performance' }
       ]
     }
   ]
 
-  const integrationPartners = [
-    'Microsoft', 'OpenAI', 'Google Cloud', 'AWS', 'Anthropic', 'NVIDIA',
-    'Databricks', 'Snowflake', 'MongoDB', 'Redis', 'Confluent', 'Elastic'
+  const capabilities = [
+    {
+      icon: Cpu,
+      title: 'Autonomous Operations',
+      description: 'AI agents that run 24/7 without human intervention'
+    },
+    {
+      icon: Sparkles,
+      title: 'Continuous Learning',
+      description: 'Systems that improve and adapt over time'
+    },
+    {
+      icon: Network,
+      title: 'Cross-Platform Integration',
+      description: 'Connect any system, any platform, any data source'
+    },
+    {
+      icon: Lock,
+      title: 'Enterprise Security',
+      description: 'Bank-grade security and compliance built-in'
+    }
   ]
 
   return (
     <section id="technology" className="py-24 bg-gray-950">
       <div className="container-width">
-        {/* Header */}
+        {/* Section Header */}
         <div className="text-center mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-purple-300 text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-blue-300 text-sm font-medium mb-6"
           >
-            <Zap className="h-4 w-4" />
-            Technology Stack
+            <Code2 className="h-4 w-4" />
+            Living Intelligence Platform
           </motion.div>
           
           <motion.h2
@@ -135,7 +134,7 @@ const TechnologySection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold text-white mb-6"
           >
-            Cutting-Edge Technology Stack
+            The Technology Behind Your Second Brain
           </motion.h2>
           
           <motion.p
@@ -145,42 +144,37 @@ const TechnologySection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
           >
-            We leverage the latest AI technologies, enterprise-grade infrastructure, and proven development 
-            frameworks to deliver robust, scalable solutions that drive business value.
+            As the aggregator of aggregators, we bring together the best AI technologies 
+            and platforms to build living intelligence systems that evolve with your business
           </motion.p>
         </div>
 
         {/* Technology Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {techCategories.map((category, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+          {technologies.map((tech, index) => (
             <motion.div
-              key={category.title}
+              key={tech.category}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="glass-card rounded-2xl p-8 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300 group"
+              className="glass-card rounded-2xl p-6 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300"
             >
-              {/* Category Header */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                  <category.icon className="h-6 w-6 text-white" />
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <tech.icon className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white">
-                  {category.title}
-                </h3>
+                <div>
+                  <h3 className="text-lg font-bold text-white mb-1">{tech.category}</h3>
+                  <p className="text-sm text-gray-400">{tech.description}</p>
+                </div>
               </div>
-
-              {/* Technologies List */}
-              <div className="space-y-3">
-                {category.technologies.map((tech, idx) => (
-                  <div key={tech.name} className="flex items-center justify-between py-2 group-hover:bg-gray-800/50 px-2 rounded transition-colors duration-300">
-                    <span className="font-medium text-gray-300">
-                      {tech.name}
-                    </span>
-                    <span className="text-xs px-2 py-1 bg-gray-800 text-gray-400 rounded-full">
-                      {tech.type}
-                    </span>
+              
+              <div className="space-y-2">
+                {tech.items.map((item, idx) => (
+                  <div key={idx} className="flex justify-between items-center py-2 border-b border-gray-800 last:border-0">
+                    <span className="text-sm text-gray-300">{item.name}</span>
+                    <span className="text-xs text-gray-500">{item.type}</span>
                   </div>
                 ))}
               </div>
@@ -188,84 +182,91 @@ const TechnologySection: React.FC = () => {
           ))}
         </div>
 
-        {/* Integration Partners */}
+        {/* Core Capabilities */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="glass-card rounded-2xl p-8 md:p-12"
+          className="glass-card rounded-3xl p-8 md:p-12 mb-20"
         >
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Certified Integration Partners
-            </h3>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Official partnerships and certifications with leading technology providers ensure 
-              seamless integration and enterprise-grade support.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            {integrationPartners.map((partner, index) => (
+          <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-12">
+            Living Intelligence Capabilities
+          </h3>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {capabilities.map((capability, index) => (
               <motion.div
-                key={partner}
+                key={capability.title}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="bg-gray-800/50 rounded-xl p-6 hover:bg-gray-800 transition-colors duration-300 group">
-                  <div className="text-gray-300 font-semibold text-sm group-hover:text-white transition-colors duration-300">
-                    {partner}
-                  </div>
-                  <div className="text-xs text-gray-500 mt-1">
-                    Certified Partner
-                  </div>
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
+                  <capability.icon className="h-8 w-8 text-blue-400" />
                 </div>
+                <h4 className="text-lg font-semibold text-white mb-2">{capability.title}</h4>
+                <p className="text-sm text-gray-400">{capability.description}</p>
               </motion.div>
             ))}
           </div>
+        </motion.div>
 
-          {/* Stats */}
-          <div className="grid md:grid-cols-3 gap-8 mt-12 pt-12 border-t border-gray-800">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-center"
-            >
-              <div className="text-3xl font-bold text-gradient mb-2">50+</div>
-              <div className="text-white font-semibold">Technologies Mastered</div>
-              <div className="text-sm text-gray-400">Across all major platforms</div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-center"
-            >
-              <div className="text-3xl font-bold text-gradient mb-2">12</div>
-              <div className="text-white font-semibold">Certified Partners</div>
-              <div className="text-sm text-gray-400">Enterprise-grade support</div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-center"
-            >
-              <div className="text-3xl font-bold text-gradient mb-2">99.9%</div>
-              <div className="text-white font-semibold">Uptime SLA</div>
-              <div className="text-sm text-gray-400">Enterprise reliability</div>
-            </motion.div>
+        {/* Platform Philosophy */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
+            Why We're Different
+          </h3>
+          
+          <div className="max-w-4xl mx-auto space-y-6 text-gray-400 text-lg">
+            <p>
+              <span className="text-white font-semibold">We don't lock you into proprietary systems.</span> As 
+              the aggregator of aggregators, we integrate the best technologies available—whether it's OpenAI, 
+              Anthropic, Google, or open-source solutions—to build exactly what your business needs.
+            </p>
+            <p>
+              <span className="text-white font-semibold">Your AI evolves with the market.</span> When new models 
+              or frameworks emerge, we seamlessly integrate them into your existing systems. You're never stuck 
+              with outdated technology.
+            </p>
+            <p>
+              <span className="text-white font-semibold">Built for your reality.</span> Whether you need cloud-based 
+              solutions, on-premise deployments, or hybrid architectures, we design systems that fit your 
+              security, compliance, and operational requirements.
+            </p>
           </div>
+        </motion.div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <h3 className="text-2xl font-bold text-white mb-4">
+            See Our Technology in Action
+          </h3>
+          <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+            Let us show you how we combine these technologies to build your company's living intelligence
+          </p>
+          <Button
+            size="xl"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg glow-blue"
+            rightIcon={<ArrowRight className="h-5 w-5" />}
+            href="/consultation"
+          >
+            Request Technology Demo
+          </Button>
         </motion.div>
       </div>
     </section>
