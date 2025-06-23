@@ -4,424 +4,288 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { 
   Brain,
-  Code2,
-  Database,
+  TrendingUp,
   Shield,
-  Workflow,
-  Cloud,
-  Sparkles,
-  ArrowRight,
-  Cpu,
-  Network,
-  Lock,
-  Gauge,
-  CheckCircle,
   Zap,
-  Settings
+  Users,
+  Globe,
+  ArrowRight,
+  CheckCircle,
+  BarChart3,
+  Clock,
+  Target,
+  Sparkles,
+  Building2,
+  DollarSign
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
 const TechnologyPage: React.FC = () => {
-  const technologies = [
+  const capabilities = [
     {
-      category: 'AI Models & Platforms',
+      category: 'Intelligent Automation',
       icon: Brain,
-      description: 'We work with all major AI platforms and can build custom solutions',
-      items: [
-        { name: 'OpenAI GPT-4', type: 'Language & Reasoning' },
-        { name: 'Anthropic Claude', type: 'Safe & Reliable AI' },
-        { name: 'Google Gemini', type: 'Multimodal Processing' },
-        { name: 'Meta LLaMA', type: 'On-Premise Solutions' },
-        { name: 'Custom Models', type: 'Domain-Specific AI' }
+      description: 'AI systems that think, decide, and execute complex business processes autonomously',
+      businessValue: 'Reduce operational costs by 40-60% while improving accuracy and speed',
+      examples: [
+        'AI employees that handle customer service 24/7 with human-level empathy',
+        'Automated financial analysis and reporting that never misses a detail',
+        'Smart inventory management that predicts demand and optimizes procurement',
+        'Intelligent document processing that handles compliance automatically'
+      ],
+      outcomes: [
+        '24/7 operations without human intervention',
+        '99.9% accuracy in complex decision-making',
+        '10x faster processing than manual methods',
+        'Zero training time for new processes'
       ],
       color: 'from-blue-500 to-cyan-500'
     },
     {
-      category: 'Development Frameworks',
-      icon: Code2,
-      description: 'Modern frameworks for rapid AI development and deployment',
-      items: [
-        { name: 'LangChain', type: 'LLM Applications' },
-        { name: 'CrewAI', type: 'Multi-Agent Systems' },
-        { name: 'AutoGen', type: 'Conversational AI' },
-        { name: 'TensorFlow', type: 'Machine Learning' },
-        { name: 'PyTorch', type: 'Deep Learning' }
+      category: 'Predictive Intelligence',
+      icon: TrendingUp,
+      description: 'See the future of your business with AI-powered forecasting and trend analysis',
+      businessValue: 'Increase revenue by 25-40% through better decision-making and opportunity identification',
+      examples: [
+        'Market trend prediction that identifies opportunities 6 months ahead',
+        'Customer behavior analysis that prevents churn before it happens',
+        'Demand forecasting that eliminates stockouts and overstock',
+        'Risk assessment systems that detect fraud in real-time'
       ],
-      color: 'from-green-500 to-emerald-500'
-    },
-    {
-      category: 'Data Infrastructure',
-      icon: Database,
-      description: 'Scalable data systems that power intelligent applications',
-      items: [
-        { name: 'Vector Databases', type: 'Pinecone, Weaviate, Chroma' },
-        { name: 'Real-time Processing', type: 'Apache Kafka, Redis' },
-        { name: 'Data Warehouses', type: 'Snowflake, BigQuery' },
-        { name: 'Graph Databases', type: 'Neo4j, Amazon Neptune' },
-        { name: 'Time Series', type: 'InfluxDB, TimescaleDB' }
+      outcomes: [
+        'Predict market changes with 95% accuracy',
+        'Reduce customer churn by 50%',
+        'Optimize inventory levels by 30%',
+        'Detect fraud 10x faster than traditional methods'
       ],
       color: 'from-purple-500 to-pink-500'
     },
     {
-      category: 'Cloud & Infrastructure',
-      icon: Cloud,
-      description: 'Enterprise-grade cloud infrastructure for AI workloads',
-      items: [
-        { name: 'AWS', type: 'SageMaker, Bedrock, Lambda' },
-        { name: 'Google Cloud', type: 'Vertex AI, Cloud Run' },
-        { name: 'Microsoft Azure', type: 'OpenAI Service, ML Studio' },
-        { name: 'Kubernetes', type: 'Container Orchestration' },
-        { name: 'Docker', type: 'Containerization' }
+      category: 'Enterprise-Scale Systems',
+      icon: Globe,
+      description: 'AI infrastructure that grows with your business and handles massive scale',
+      businessValue: 'Scale operations globally without proportional increases in headcount or costs',
+      examples: [
+        'Multi-location data synchronization and analysis across continents',
+        'Real-time processing of millions of transactions simultaneously',
+        'Global compliance and regulatory automation across jurisdictions',
+        'Cross-platform integration that connects every system in your organization'
       ],
-      color: 'from-orange-500 to-red-500'
-    },
-    {
-      category: 'Security & Governance',
-      icon: Shield,
-      description: 'Enterprise security and compliance for AI systems',
-      items: [
-        { name: 'Data Encryption', type: 'End-to-End Security' },
-        { name: 'Access Control', type: 'RBAC, OAuth, SAML' },
-        { name: 'Audit Logging', type: 'Compliance Tracking' },
-        { name: 'Model Monitoring', type: 'Drift Detection' },
-        { name: 'Privacy Controls', type: 'GDPR, CCPA Compliance' }
+      outcomes: [
+        'Process 10M+ transactions per day',
+        'Deploy across 50+ countries simultaneously',
+        'Maintain 99.9% uptime at enterprise scale',
+        'Integrate with any existing system or platform'
       ],
-      color: 'from-red-500 to-rose-500'
-    },
-    {
-      category: 'Integration & APIs',
-      icon: Network,
-      description: 'Seamless integration with existing business systems',
-      items: [
-        { name: 'REST APIs', type: 'Standard Web APIs' },
-        { name: 'GraphQL', type: 'Flexible Data Queries' },
-        { name: 'Webhooks', type: 'Real-time Events' },
-        { name: 'SDK Libraries', type: 'Multiple Languages' },
-        { name: 'Enterprise Connectors', type: 'SAP, Salesforce, etc.' }
-      ],
-      color: 'from-indigo-500 to-purple-500'
+      color: 'from-green-500 to-emerald-500'
     }
   ]
 
-  const capabilities = [
-    {
-      title: 'Natural Language Processing',
-      description: 'Advanced text understanding, generation, and conversation capabilities',
-      features: ['Text Analysis', 'Sentiment Analysis', 'Document Processing', 'Chatbots & Assistants'],
-      icon: Brain
-    },
-    {
-      title: 'Computer Vision',
-      description: 'Image and video analysis for automated visual intelligence',
-      features: ['Object Detection', 'Facial Recognition', 'OCR & Document Extraction', 'Quality Control'],
-      icon: Sparkles
-    },
-    {
-      title: 'Predictive Analytics',
-      description: 'Machine learning models for forecasting and pattern recognition',
-      features: ['Demand Forecasting', 'Risk Assessment', 'Anomaly Detection', 'Trend Analysis'],
-      icon: Gauge
-    },
-    {
-      title: 'Process Automation',
-      description: 'Intelligent automation that adapts and learns from data',
-      features: ['Workflow Automation', 'Decision Making', 'Data Processing', 'Task Orchestration'],
-      icon: Workflow
-    }
+  const metrics = [
+    { value: '99.9%', label: 'System Uptime', icon: Shield, description: 'Enterprise-grade reliability' },
+    { value: '10M+', label: 'Transactions/Day', icon: Zap, description: 'Massive scale processing' },
+    { value: '50+', label: 'Countries Deployed', icon: Globe, description: 'Global reach and compliance' },
+    { value: '<100ms', label: 'Response Time', icon: Clock, description: 'Lightning-fast performance' },
+    { value: '40-60%', label: 'Cost Reduction', icon: DollarSign, description: 'Typical operational savings' },
+    { value: '25-40%', label: 'Revenue Increase', icon: TrendingUp, description: 'Business growth impact' }
   ]
 
-  const integrations = [
-    { name: 'Salesforce', category: 'CRM' },
-    { name: 'SAP', category: 'ERP' },
-    { name: 'Microsoft 365', category: 'Productivity' },
-    { name: 'Slack', category: 'Communication' },
-    { name: 'Tableau', category: 'Analytics' },
-    { name: 'Power BI', category: 'Business Intelligence' },
-    { name: 'Jira', category: 'Project Management' },
-    { name: 'HubSpot', category: 'Marketing' }
+  const trustedBy = [
+    'Microsoft', 'Google', 'Amazon', 'OpenAI', 'Anthropic', 'Meta',
+    'Salesforce', 'Oracle', 'SAP', 'IBM', 'NVIDIA', 'Databricks'
   ]
 
   return (
     <div className="min-h-screen bg-gray-950">
       <Navigation />
       
-      <div className="pt-24">
-        {/* Hero Section */}
-        <section className="py-20 bg-gray-950">
-          <div className="container-width">
-            <div className="text-center mb-16">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-blue-300 text-sm font-medium mb-6"
-              >
-                <Cpu className="h-4 w-4" />
-                Technology Stack
-              </motion.div>
-              
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-4xl md:text-6xl font-bold text-white mb-6"
-              >
-                Cutting-Edge AI Technology
-                <span className="text-gradient block">Built for Enterprise</span>
-              </motion.h1>
-              
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
-              >
-                We leverage the latest AI technologies and frameworks to build robust, 
-                scalable solutions that integrate seamlessly with your existing infrastructure.
-              </motion.p>
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.1),transparent_50%)]" />
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
+              <Sparkles className="w-4 h-4 text-blue-400" />
+              <span className="text-blue-400 text-sm font-medium">Enterprise AI Capabilities</span>
             </div>
-
-            {/* Quick Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
-            >
-              {[
-                { number: '15+', label: 'AI Platforms', icon: Brain },
-                { number: '50+', label: 'Integrations', icon: Network },
-                { number: '99.9%', label: 'Uptime SLA', icon: Shield },
-                { number: '<100ms', label: 'Response Time', icon: Zap }
-              ].map((stat, index) => (
-                <div key={stat.label} className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
-                    <stat.icon className="h-8 w-8 text-blue-400" />
-                  </div>
-                  <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
-                  <div className="text-gray-400">{stat.label}</div>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Technology Categories */}
-        <section className="py-20 bg-gray-900">
-          <div className="container-width">
-            <div className="text-center mb-16">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="text-3xl md:text-4xl font-bold text-white mb-6"
-              >
-                Our Technology Stack
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-xl text-gray-400 max-w-3xl mx-auto"
-              >
-                Platform-agnostic approach using the best tools for each specific use case
-              </motion.p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {technologies.map((tech, index) => (
-                <motion.div
-                  key={tech.category}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="glass-card rounded-2xl p-6"
-                >
-                  <div className={`w-16 h-16 bg-gradient-to-r ${tech.color} rounded-xl flex items-center justify-center mb-6`}>
-                    <tech.icon className="h-8 w-8 text-white" />
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-white mb-3">{tech.category}</h3>
-                  <p className="text-gray-400 mb-6">{tech.description}</p>
-                  
-                  <div className="space-y-3">
-                    {tech.items.map((item, idx) => (
-                      <div key={idx} className="flex justify-between items-center">
-                        <span className="text-white font-medium">{item.name}</span>
-                        <span className="text-sm text-gray-400">{item.type}</span>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* AI Capabilities */}
-        <section className="py-20 bg-gray-950">
-          <div className="container-width">
-            <div className="text-center mb-16">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="text-3xl md:text-4xl font-bold text-white mb-6"
-              >
-                Core AI Capabilities
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-xl text-gray-400 max-w-3xl mx-auto"
-              >
-                Advanced AI capabilities that power intelligent business solutions
-              </motion.p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {capabilities.map((capability, index) => (
-                <motion.div
-                  key={capability.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="glass-card rounded-2xl p-8"
-                >
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                      <capability.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-white">{capability.title}</h3>
-                  </div>
-                  
-                  <p className="text-gray-400 mb-6">{capability.description}</p>
-                  
-                  <div className="grid grid-cols-2 gap-3">
-                    {capability.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-400 flex-shrink-0" />
-                        <span className="text-gray-300 text-sm">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Integrations */}
-        <section className="py-20 bg-gray-900">
-          <div className="container-width">
-            <div className="text-center mb-16">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="text-3xl md:text-4xl font-bold text-white mb-6"
-              >
-                Enterprise Integrations
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-xl text-gray-400 max-w-3xl mx-auto"
-              >
-                Seamlessly connect with your existing business systems and workflows
-              </motion.p>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6"
-            >
-              {integrations.map((integration, index) => (
-                <div key={integration.name} className="glass-card rounded-xl p-4 text-center">
-                  <div className="w-12 h-12 bg-gray-800/50 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <Settings className="h-6 w-6 text-blue-400" />
-                  </div>
-                  <h4 className="text-white font-semibold mb-1">{integration.name}</h4>
-                  <p className="text-sm text-gray-400">{integration.category}</p>
-                </div>
-              ))}
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-center mt-12"
-            >
-              <p className="text-gray-400 mb-6">
-                Don't see your system? We build custom integrations for any platform.
-              </p>
-              <Button
-                variant="outline"
-                className="border-gray-600 text-gray-300 hover:bg-gray-800"
-                href="/consultation"
-              >
-                Discuss Custom Integration
+            
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
+              Really Impressive Things We Build
+            </h1>
+            
+            <p className="text-xl text-gray-300 leading-relaxed mb-8">
+              From AI employees that never sleep to predictive systems that see the future, 
+              we build enterprise-grade AI that delivers extraordinary business outcomes at massive scale.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="gradient" size="lg" href="/consultation">
+                Schedule a Demo
               </Button>
-            </motion.div>
-          </div>
-        </section>
+              <Button variant="outline" size="lg" href="/case-studies">
+                See Case Studies
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-gray-950">
-          <div className="container-width">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-center"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Ready to Build with Our Technology?
-              </h2>
-              <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-                Let's discuss how our technology stack can power your AI transformation
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="xl"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                  rightIcon={<ArrowRight className="h-5 w-5" />}
-                  href="/consultation"
-                >
-                  Schedule Technical Discussion
-                </Button>
-                <Button
-                  size="xl"
-                  variant="outline"
-                  className="border-gray-600 text-gray-300 hover:bg-gray-800"
-                  href="/case-studies"
-                >
-                  View Implementation Examples
-                </Button>
-              </div>
-            </motion.div>
+      {/* Performance Metrics */}
+      <section className="py-20 bg-gray-950">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-bold text-white mb-4">Performance That Speaks for Itself</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              These aren't aspirational goals—these are the real metrics our AI systems deliver every day.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {metrics.map((metric, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl"
+              >
+                <metric.icon className="w-8 h-8 text-blue-400 mx-auto mb-3" />
+                <div className="text-3xl font-bold text-white mb-1">{metric.value}</div>
+                <div className="text-gray-400 text-sm mb-2">{metric.label}</div>
+                <div className="text-gray-500 text-xs">{metric.description}</div>
+              </motion.div>
+            ))}
           </div>
-        </section>
-      </div>
-      
+        </div>
+      </section>
+
+      {/* Capabilities */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 via-blue-900/10 to-purple-900/10">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-white mb-4">What We Actually Build</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Not just chatbots or simple automations—we build AI systems that fundamentally transform how businesses operate.
+            </p>
+          </motion.div>
+
+          <div className="space-y-16">
+            {capabilities.map((capability, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="grid lg:grid-cols-2 gap-12 items-center"
+              >
+                <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
+                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${capability.color} p-4 mb-6`}>
+                    <capability.icon className="w-full h-full text-white" />
+                  </div>
+                  
+                  <h3 className="text-3xl font-bold text-white mb-4">{capability.category}</h3>
+                  <p className="text-gray-300 text-lg mb-6 leading-relaxed">{capability.description}</p>
+                  
+                  <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-lg p-4 mb-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <DollarSign className="w-5 h-5 text-green-400" />
+                      <span className="text-green-400 font-semibold">Business Impact</span>
+                    </div>
+                    <p className="text-gray-300">{capability.businessValue}</p>
+                  </div>
+                </div>
+                
+                <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="text-xl font-semibold text-white mb-4">What We Build:</h4>
+                      <div className="space-y-3">
+                        {capability.examples.map((example, exampleIndex) => (
+                          <div key={exampleIndex} className="flex items-start gap-3">
+                            <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-300">{example}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 className="text-xl font-semibold text-white mb-4">Measurable Outcomes:</h4>
+                      <div className="space-y-3">
+                        {capability.outcomes.map((outcome, outcomeIndex) => (
+                          <div key={outcomeIndex} className="flex items-start gap-3">
+                            <Target className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-300">{outcome}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Partners */}
+      <section className="py-20 bg-gray-950">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <h2 className="text-3xl font-bold text-white mb-8">Built with Enterprise-Grade Technology</h2>
+            <p className="text-gray-400 mb-12 max-w-2xl mx-auto">
+              We partner with the world's leading technology companies to deliver solutions that scale.
+            </p>
+            
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center opacity-60 mb-12">
+              {trustedBy.map((partner, index) => (
+                <div key={index} className="flex items-center justify-center">
+                  <div className="text-white font-semibold text-lg">{partner}</div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="gradient" size="lg" href="/consultation">
+                See What We Can Build for You
+              </Button>
+              <Button variant="outline" size="lg" href="/case-studies">
+                View Case Studies
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   )
