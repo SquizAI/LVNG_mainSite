@@ -10,7 +10,7 @@ import {
   MessageSquare,
   Clock,
   ArrowRight,
-  Brain,
+  CheckCircle,
   Zap,
   Users
 } from 'lucide-react'
@@ -21,15 +21,15 @@ const ContactSection: React.FC = () => {
     {
       icon: Calendar,
       title: 'Schedule Free Consultation',
-      description: 'Book a 30-minute discovery call to discuss your AI transformation',
+      description: 'Book a 30-minute discovery call to discuss your AI project',
       action: 'Schedule Now',
       href: '/consultation',
       color: 'from-blue-500 to-cyan-500'
     },
     {
       icon: Zap,
-      title: 'Start AI Assessment',
-      description: 'Begin your journey with our comprehensive business analysis',
+      title: 'Start Your Project',
+      description: 'Begin with our comprehensive AI assessment and planning',
       action: 'Get Started',
       href: '/get-started',
       color: 'from-purple-500 to-pink-500'
@@ -46,19 +46,19 @@ const ContactSection: React.FC = () => {
 
   const processSteps = [
     {
-      icon: Brain,
+      icon: MessageSquare,
       title: 'Initial Consultation',
-      description: 'Free 30-minute call to understand your business needs'
+      description: 'Free 30-minute call to understand your needs'
     },
     {
-      icon: Users,
-      title: 'Deep Analysis',
-      description: 'Complete assessment of your operations and AI opportunities'
+      icon: CheckCircle,
+      title: 'Project Planning',
+      description: 'Detailed assessment and implementation roadmap'
     },
     {
       icon: Zap,
       title: 'Start Building',
-      description: 'Begin developing your custom living intelligence systems'
+      description: 'Begin development with clear milestones'
     }
   ]
 
@@ -85,7 +85,7 @@ const ContactSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold text-white mb-6"
           >
-            Ready to Build Your Second Brain?
+            Ready to Build AI That Works?
           </motion.h2>
           
           <motion.p
@@ -95,8 +95,8 @@ const ContactSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
           >
-            Let's discuss how we can transform your business with living intelligence. 
-            Whether you're 10 people or 10,000, we'll build AI systems that fit your needs.
+            Let's discuss how we can help you implement AI successfully. 
+            From startups to enterprises, we build solutions that scale.
           </motion.p>
         </div>
 
@@ -150,7 +150,7 @@ const ContactSection: React.FC = () => {
           className="glass-card rounded-3xl p-8 md:p-12 mb-20"
         >
           <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-12">
-            Simple Process, Powerful Results
+            Simple Process, Real Results
           </h3>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -163,7 +163,7 @@ const ContactSection: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 glow-blue">
+                <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <step.icon className="h-10 w-10 text-white" />
                 </div>
                 <h4 className="text-lg font-semibold text-white mb-2">{step.title}</h4>

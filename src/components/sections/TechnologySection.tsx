@@ -21,9 +21,9 @@ import { Button } from '../ui/Button'
 const TechnologySection: React.FC = () => {
   const technologies = [
     {
-      category: 'Foundation Models',
+      category: 'AI Models & Platforms',
       icon: Brain,
-      description: 'We integrate the best AI models for your specific needs',
+      description: 'We work with all major AI platforms and can build custom solutions',
       items: [
         { name: 'OpenAI GPT-4', type: 'Language & Reasoning' },
         { name: 'Anthropic Claude', type: 'Safe & Reliable AI' },
@@ -32,82 +32,59 @@ const TechnologySection: React.FC = () => {
       ]
     },
     {
-      category: 'Agent Frameworks',
-      icon: Network,
-      description: 'Multi-agent systems that work together autonomously',
+      category: 'Development Frameworks',
+      icon: Code2,
+      description: 'Modern frameworks for building production-ready AI applications',
       items: [
-        { name: 'LangChain', type: 'Production-Ready Agents' },
-        { name: 'CrewAI', type: 'Collaborative AI Teams' },
-        { name: 'AutoGen', type: 'Microsoft Enterprise' },
-        { name: 'Custom Frameworks', type: 'Tailored Solutions' }
+        { name: 'LangChain', type: 'AI Orchestration' },
+        { name: 'Python/FastAPI', type: 'Backend Development' },
+        { name: 'React/Next.js', type: 'Frontend Development' },
+        { name: 'TensorFlow/PyTorch', type: 'Custom ML Models' }
       ]
     },
     {
       category: 'Data Infrastructure',
       icon: Database,
-      description: 'Enterprise-grade data systems for AI operations',
+      description: 'Scalable data systems designed for AI workloads',
       items: [
         { name: 'Vector Databases', type: 'Pinecone, Weaviate' },
         { name: 'Data Pipelines', type: 'Real-time Processing' },
-        { name: 'Knowledge Graphs', type: 'Semantic Understanding' },
-        { name: 'Cloud Platforms', type: 'AWS, Azure, GCP' }
+        { name: 'Cloud Platforms', type: 'AWS, Azure, GCP' },
+        { name: 'Data Lakes', type: 'Structured & Unstructured' }
       ]
     },
     {
       category: 'Integration Tools',
       icon: Workflow,
-      description: 'Seamless connection to your existing systems',
+      description: 'Connect AI seamlessly with your existing systems',
       items: [
-        { name: 'API Orchestration', type: 'RESTful & GraphQL' },
+        { name: 'API Development', type: 'RESTful & GraphQL' },
         { name: 'Enterprise Systems', type: 'SAP, Salesforce, Oracle' },
-        { name: 'Workflow Automation', type: 'Zapier, Make, n8n' },
+        { name: 'Workflow Automation', type: 'Process Integration' },
         { name: 'Custom Connectors', type: 'Legacy System Bridge' }
       ]
     },
     {
       category: 'Security & Compliance',
       icon: Shield,
-      description: 'Enterprise security and regulatory compliance',
+      description: 'Enterprise-grade security for all AI implementations',
       items: [
         { name: 'Data Encryption', type: 'End-to-End Security' },
         { name: 'Access Control', type: 'Role-Based Permissions' },
         { name: 'Audit Trails', type: 'Complete Traceability' },
-        { name: 'Compliance Tools', type: 'GDPR, HIPAA, SOC2' }
+        { name: 'Compliance', type: 'GDPR, HIPAA, SOC2' }
       ]
     },
     {
-      category: 'Performance & Scale',
+      category: 'Monitoring & Optimization',
       icon: Gauge,
-      description: 'Built for enterprise performance and growth',
+      description: 'Tools to ensure your AI performs at its best',
       items: [
-        { name: 'Load Balancing', type: 'Distributed Processing' },
-        { name: 'Auto-Scaling', type: 'Dynamic Resources' },
-        { name: 'Monitoring', type: 'Real-time Analytics' },
-        { name: 'Optimization', type: 'Cost & Performance' }
+        { name: 'Performance Monitoring', type: 'Real-time Metrics' },
+        { name: 'Cost Optimization', type: 'Resource Management' },
+        { name: 'A/B Testing', type: 'Model Comparison' },
+        { name: 'Error Tracking', type: 'Debugging & Logs' }
       ]
-    }
-  ]
-
-  const capabilities = [
-    {
-      icon: Cpu,
-      title: 'Autonomous Operations',
-      description: 'AI agents that run 24/7 without human intervention'
-    },
-    {
-      icon: Sparkles,
-      title: 'Continuous Learning',
-      description: 'Systems that improve and adapt over time'
-    },
-    {
-      icon: Network,
-      title: 'Cross-Platform Integration',
-      description: 'Connect any system, any platform, any data source'
-    },
-    {
-      icon: Lock,
-      title: 'Enterprise Security',
-      description: 'Bank-grade security and compliance built-in'
     }
   ]
 
@@ -124,7 +101,7 @@ const TechnologySection: React.FC = () => {
             className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-blue-300 text-sm font-medium mb-6"
           >
             <Code2 className="h-4 w-4" />
-            Living Intelligence Platform
+            Technology Stack
           </motion.div>
           
           <motion.h2
@@ -134,7 +111,7 @@ const TechnologySection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold text-white mb-6"
           >
-            The Technology Behind Your Second Brain
+            Built with Best-in-Class Technology
           </motion.h2>
           
           <motion.p
@@ -144,8 +121,8 @@ const TechnologySection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
           >
-            As the aggregator of aggregators, we bring together the best AI technologies 
-            and platforms to build living intelligence systems that evolve with your business
+            We're platform-agnostic and use the best tools for each project. 
+            From cutting-edge AI models to enterprise-grade infrastructure.
           </motion.p>
         </div>
 
@@ -182,39 +159,7 @@ const TechnologySection: React.FC = () => {
           ))}
         </div>
 
-        {/* Core Capabilities */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="glass-card rounded-3xl p-8 md:p-12 mb-20"
-        >
-          <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-12">
-            Living Intelligence Capabilities
-          </h3>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {capabilities.map((capability, index) => (
-              <motion.div
-                key={capability.title}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
-                  <capability.icon className="h-8 w-8 text-blue-400" />
-                </div>
-                <h4 className="text-lg font-semibold text-white mb-2">{capability.title}</h4>
-                <p className="text-sm text-gray-400">{capability.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Platform Philosophy */}
+        {/* Why Our Tech Stack Matters */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -222,26 +167,32 @@ const TechnologySection: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
-            Why We're Different
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
+            Why Our Technology Approach Works
           </h3>
           
-          <div className="max-w-4xl mx-auto space-y-6 text-gray-400 text-lg">
-            <p>
-              <span className="text-white font-semibold">We don't lock you into proprietary systems.</span> As 
-              the aggregator of aggregators, we integrate the best technologies available—whether it's OpenAI, 
-              Anthropic, Google, or open-source solutions—to build exactly what your business needs.
-            </p>
-            <p>
-              <span className="text-white font-semibold">Your AI evolves with the market.</span> When new models 
-              or frameworks emerge, we seamlessly integrate them into your existing systems. You're never stuck 
-              with outdated technology.
-            </p>
-            <p>
-              <span className="text-white font-semibold">Built for your reality.</span> Whether you need cloud-based 
-              solutions, on-premise deployments, or hybrid architectures, we design systems that fit your 
-              security, compliance, and operational requirements.
-            </p>
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div>
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
+                <Lock className="h-8 w-8 text-blue-400" />
+              </div>
+              <h4 className="text-lg font-semibold text-white mb-2">No Vendor Lock-in</h4>
+              <p className="text-gray-400">We build with open standards and can integrate any AI platform</p>
+            </div>
+            <div>
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
+                <Sparkles className="h-8 w-8 text-purple-400" />
+              </div>
+              <h4 className="text-lg font-semibold text-white mb-2">Future-Proof</h4>
+              <p className="text-gray-400">Easy to upgrade as new AI models and tools become available</p>
+            </div>
+            <div>
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
+                <Network className="h-8 w-8 text-green-400" />
+              </div>
+              <h4 className="text-lg font-semibold text-white mb-2">Enterprise Ready</h4>
+              <p className="text-gray-400">Scalable, secure, and compliant with industry standards</p>
+            </div>
           </div>
         </motion.div>
 
@@ -254,18 +205,18 @@ const TechnologySection: React.FC = () => {
           className="text-center"
         >
           <h3 className="text-2xl font-bold text-white mb-4">
-            See Our Technology in Action
+            Let's Build Something Amazing Together
           </h3>
           <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-            Let us show you how we combine these technologies to build your company's living intelligence
+            Our technology expertise combined with your business knowledge creates powerful AI solutions
           </p>
           <Button
             size="xl"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg glow-blue"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg"
             rightIcon={<ArrowRight className="h-5 w-5" />}
             href="/consultation"
           >
-            Request Technology Demo
+            Discuss Your Project
           </Button>
         </motion.div>
       </div>

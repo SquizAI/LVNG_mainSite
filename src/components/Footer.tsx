@@ -118,7 +118,7 @@ const Footer: React.FC = () => {
               </div>
 
               <p className="text-gray-400 leading-relaxed">
-                Enterprise AI integration specialists delivering measurable business outcomes through sophisticated AI systems and strategic implementation.
+                Full-stack AI development partner. We build and integrate AI solutions that deliver real business value.
               </p>
 
               {/* Contact Info */}
