@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
-import { ArrowRight, Play, CheckCircle, Users, Building2, Code2, Zap, Sparkles, Brain, Target, Bot, Cpu, Network, Database } from 'lucide-react'
+import { ArrowRight, Play, CheckCircle, Users, Building2, Code2, Zap, Sparkles, Brain, Target, Shield, Database, Cpu, Network, Activity, BarChart3, TrendingUp } from 'lucide-react'
 import { Button } from '../ui/Button'
 
 const HeroSection: React.FC = () => {
@@ -32,98 +32,77 @@ const HeroSection: React.FC = () => {
     { value: '24/7', label: 'System Reliability', sublabel: 'Enterprise SLA', icon: Brain }
   ]
 
-  // AI Agent Animation Components
-  const aiAgents = [
-    { id: 1, icon: Bot, name: 'Data Agent', color: 'from-blue-400 to-cyan-400', delay: 0 },
-    { id: 2, icon: Brain, name: 'Learning Agent', color: 'from-purple-400 to-pink-400', delay: 0.5 },
-    { id: 3, icon: Cpu, name: 'Processing Agent', color: 'from-green-400 to-emerald-400', delay: 1 },
-    { id: 4, icon: Network, name: 'Network Agent', color: 'from-orange-400 to-yellow-400', delay: 1.5 },
-    { id: 5, icon: Database, name: 'Storage Agent', color: 'from-red-400 to-pink-400', delay: 2 }
+  // Enterprise Technical Stack Visualization
+  const techStack = [
+    { name: 'Data Layer', icon: Database, position: { x: 0, y: 0 }, connections: [1, 2] },
+    { name: 'Processing Engine', icon: Cpu, position: { x: 120, y: -60 }, connections: [2, 3] },
+    { name: 'AI Core', icon: Brain, position: { x: 0, y: -120 }, connections: [3, 4] },
+    { name: 'Network Layer', icon: Network, position: { x: -120, y: -60 }, connections: [0, 4] },
+    { name: 'Security Layer', icon: Shield, position: { x: 0, y: 60 }, connections: [0] }
+  ]
+
+  // Enterprise metrics simulation
+  const metrics = [
+    { label: 'System Uptime', value: '99.9%', trend: 'up' },
+    { label: 'Processing Speed', value: '2.4ms', trend: 'up' },
+    { label: 'Data Throughput', value: '847GB/h', trend: 'up' },
+    { label: 'Active Connections', value: '12,847', trend: 'up' }
   ]
 
   return (
     <section className="relative min-h-screen bg-gray-950 overflow-hidden">
-      {/* Light Background Grid */}
+      {/* Professional Grid Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 opacity-[0.03]" style={{
+        {/* Subtle Technical Grid */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: `
-            linear-gradient(rgba(59, 130, 246, 0.4) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(59, 130, 246, 0.4) 1px, transparent 1px)
+            linear-gradient(rgba(100, 116, 139, 0.5) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(100, 116, 139, 0.5) 1px, transparent 1px)
           `,
-          backgroundSize: '40px 40px',
-          animation: 'grid-move 30s linear infinite'
+          backgroundSize: '50px 50px'
         }} />
         
-        {/* Interactive Mouse Follow Effect */}
+        {/* Subtle Mouse Interaction */}
         <motion.div
-          className="absolute w-96 h-96 bg-gradient-to-r from-blue-500/5 to-purple-600/5 rounded-full blur-3xl pointer-events-none"
+          className="absolute w-[600px] h-[600px] bg-gradient-to-r from-slate-500/[0.02] to-slate-400/[0.02] rounded-full blur-3xl pointer-events-none"
           animate={{
-            x: mousePosition.x - 192,
-            y: mousePosition.y - 192,
+            x: mousePosition.x - 300,
+            y: mousePosition.y - 300,
           }}
-          transition={{ type: "spring", damping: 30, stiffness: 200 }}
+          transition={{ type: "spring", damping: 50, stiffness: 100 }}
         />
         
-        {/* Main Gradient Orbs */}
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.05, 0.1, 0.05],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.05, 0.08, 0.05],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }}
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full blur-3xl"
-        />
+        {/* Professional Gradient Accents */}
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-gradient-to-br from-slate-800/10 to-slate-700/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/3 right-1/4 w-[300px] h-[300px] bg-gradient-to-br from-slate-700/10 to-slate-600/10 rounded-full blur-3xl" />
+        </div>
       </div>
 
       <div className="container-width relative z-10">
         <div className="pt-32 pb-20">
-          {/* Enhanced Main Content */}
+          {/* Professional Header */}
           <div className="max-w-5xl mx-auto text-center space-y-8">
-            {/* Animated Badge */}
+            {/* Enterprise Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative inline-flex items-center gap-2 px-6 py-3 glass-card rounded-full text-blue-300 text-sm font-medium group cursor-pointer"
+              className="relative inline-flex items-center gap-3 px-6 py-3 bg-slate-800/30 border border-slate-700/50 rounded-lg text-slate-300 text-sm font-medium backdrop-blur-sm"
             >
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              >
-                <Building2 className="h-4 w-4" />
-              </motion.div>
-              <span>AI Integration & Development Specialists</span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span>Enterprise AI Integration & Development</span>
+              <div className="text-xs text-slate-500">•</div>
+              <span className="text-xs text-slate-400">Production Ready</span>
             </motion.div>
 
-            {/* Enhanced Headline */}
-            <div className="space-y-4">
+            {/* Main Headline */}
+            <div className="space-y-6">
               <motion.h1
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-                className="text-5xl md:text-6xl lg:text-8xl font-bold text-white leading-tight"
+                className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
               >
                 Enterprise AI Integration
               </motion.h1>
@@ -133,246 +112,206 @@ const HeroSection: React.FC = () => {
                 transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
                 className="relative"
               >
-                <span className="text-5xl md:text-6xl lg:text-8xl font-bold text-gradient block">
-                  Done Right
+                <span className="text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400 block">
+                  Built for Scale
                 </span>
-                <motion.div
-                  className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-600/20 rounded-2xl blur-2xl"
-                  animate={{
-                    opacity: [0.3, 0.6, 0.3],
-                    scale: [0.8, 1.1, 0.8],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
               </motion.div>
             </div>
 
-            {/* AI Agents Animation Section */}
+            {/* Enterprise Architecture Visualization */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-              className="py-12"
+              className="py-16"
             >
-              <div className="relative max-w-4xl mx-auto">
-                {/* Central AI Hub */}
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 1, delay: 1, type: "spring", stiffness: 200 }}
-                  className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
-                >
-                  <motion.div
-                    animate={{ 
-                      rotate: 360,
-                      scale: [1, 1.1, 1]
-                    }}
-                    transition={{ 
-                      rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                      scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-                    }}
-                    className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/50"
-                  >
-                    <Brain className="h-12 w-12 text-white" />
-                  </motion.div>
-                  <motion.div
-                    animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.1, 0.3] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-xl"
-                  />
-                </motion.div>
-
-                {/* AI Agents orbiting around the central hub */}
-                {aiAgents.map((agent, index) => {
-                  const angle = (index * 72) * (Math.PI / 180) // 72 degrees between each agent
-                  const radius = 120
-                  const x = Math.cos(angle) * radius
-                  const y = Math.sin(angle) * radius
-
-                  return (
-                    <motion.div
-                      key={agent.id}
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ 
-                        opacity: 1, 
-                        scale: 1,
-                        x: [x, x + 10, x],
-                        y: [y, y - 10, y]
-                      }}
-                      transition={{ 
-                        opacity: { duration: 0.6, delay: 1.2 + agent.delay },
-                        scale: { duration: 0.6, delay: 1.2 + agent.delay },
-                        x: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: agent.delay },
-                        y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: agent.delay }
-                      }}
-                      className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                      style={{ transform: `translate(${x}px, ${y}px) translate(-50%, -50%)` }}
-                    >
-                      <motion.div
-                        animate={{ rotate: -360 }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                        className={`w-16 h-16 bg-gradient-to-r ${agent.color} rounded-xl flex items-center justify-center shadow-lg group cursor-pointer`}
-                      >
-                        <agent.icon className="h-8 w-8 text-white" />
+              <div className="relative max-w-6xl mx-auto">
+                {/* Central Architecture Display */}
+                <div className="bg-slate-900/50 border border-slate-800/50 rounded-2xl p-8 backdrop-blur-sm">
+                  <div className="grid md:grid-cols-2 gap-12 items-center">
+                    
+                    {/* Technical Stack Diagram */}
+                    <div className="relative">
+                      <div className="text-sm text-slate-400 mb-4 font-mono">System Architecture</div>
+                      <div className="relative w-full h-64 bg-slate-800/30 rounded-xl p-6 border border-slate-700/30">
                         
-                        {/* Data flow lines */}
+                        {/* Technical Stack Nodes */}
+                        {techStack.map((component, index) => (
+                          <motion.div
+                            key={component.name}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
+                            className="absolute"
+                            style={{
+                              left: `calc(50% + ${component.position.x}px)`,
+                              top: `calc(50% + ${component.position.y}px)`,
+                              transform: 'translate(-50%, -50%)'
+                            }}
+                          >
+                            <div className="relative group">
+                              <div className="w-12 h-12 bg-slate-700 border border-slate-600 rounded-lg flex items-center justify-center hover:bg-slate-600 transition-colors">
+                                <component.icon className="h-6 w-6 text-slate-300" />
+                              </div>
+                              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-slate-400 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                                {component.name}
+                              </div>
+                            </div>
+                          </motion.div>
+                        ))}
+
+                        {/* Connection Lines */}
+                        {techStack.map((component, index) => (
+                          component.connections.map((connectionIndex) => {
+                            const target = techStack[connectionIndex]
+                            const startX = 50 + (component.position.x / 3)
+                            const startY = 50 + (component.position.y / 3)
+                            const endX = 50 + (target.position.x / 3)
+                            const endY = 50 + (target.position.y / 3)
+
+                            return (
+                              <motion.svg
+                                key={`${index}-${connectionIndex}`}
+                                className="absolute inset-0 w-full h-full pointer-events-none"
+                                initial={{ pathLength: 0 }}
+                                animate={{ pathLength: 1 }}
+                                transition={{ duration: 1, delay: 1.5 + index * 0.1 }}
+                              >
+                                <line
+                                  x1={`${startX}%`}
+                                  y1={`${startY}%`}
+                                  x2={`${endX}%`}
+                                  y2={`${endY}%`}
+                                  stroke="rgba(100, 116, 139, 0.4)"
+                                  strokeWidth="1"
+                                  strokeDasharray="3,3"
+                                />
+                              </motion.svg>
+                            )
+                          })
+                        ))}
+
+                        {/* Data Flow Indicators */}
                         <motion.div
-                          animate={{ 
-                            scale: [0, 1, 0],
-                            opacity: [0, 1, 0]
-                          }}
-                          transition={{ 
-                            duration: 2, 
-                            repeat: Infinity, 
-                            ease: "easeInOut",
-                            delay: agent.delay + 2
-                          }}
-                          className="absolute inset-0 border-2 border-white/30 rounded-xl"
-                        />
-                      </motion.div>
-
-                      {/* Connection lines to central hub */}
-                      <motion.div
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ duration: 1.5, delay: 1.5 + agent.delay }}
-                        className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-                      >
-                        <svg 
-                          width="2" 
-                          height={Math.abs(y) + 50} 
-                          className="absolute"
-                          style={{ 
-                            left: x > 0 ? 0 : -Math.abs(x),
-                            top: y > 0 ? 0 : -Math.abs(y)
-                          }}
+                          animate={{ opacity: [0.3, 0.8, 0.3] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                          className="absolute top-4 right-4 flex items-center gap-2 text-xs text-slate-400"
                         >
-                          <motion.line
-                            x1="1"
-                            y1="0"
-                            x2="1"
-                            y2={Math.abs(y) + 50}
-                            stroke="url(#gradient)"
-                            strokeWidth="1"
-                            strokeDasharray="5,5"
-                            animate={{ strokeDashoffset: [0, -10] }}
-                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                          />
-                          <defs>
-                            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                              <stop offset="0%" stopColor="rgba(59, 130, 246, 0.8)" />
-                              <stop offset="100%" stopColor="rgba(139, 92, 246, 0.8)" />
-                            </linearGradient>
-                          </defs>
-                        </svg>
-                      </motion.div>
+                          <Activity className="h-3 w-3" />
+                          <span className="font-mono">Live Data Flow</span>
+                        </motion.div>
+                      </div>
+                    </div>
 
-                      {/* Agent name tooltip */}
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 2 + agent.delay }}
-                        className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-gray-400 whitespace-nowrap"
-                      >
-                        {agent.name}
-                      </motion.div>
-                    </motion.div>
-                  )
-                })}
-
-                {/* Pulsing data transfer effects */}
-                <motion.div
-                  animate={{ scale: [1, 2, 1], opacity: [0.5, 0, 0.5] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                  className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-blue-400/30 rounded-full"
-                />
-                <motion.div
-                  animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0, 0.3] }}
-                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-                  className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-purple-400/20 rounded-full"
-                />
+                    {/* Enterprise Metrics Dashboard */}
+                    <div className="space-y-6">
+                      <div className="text-sm text-slate-400 mb-4 font-mono">Performance Metrics</div>
+                      
+                      {metrics.map((metric, index) => (
+                        <motion.div
+                          key={metric.label}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5, delay: 1.5 + index * 0.1 }}
+                          className="bg-slate-800/30 border border-slate-700/30 rounded-lg p-4"
+                        >
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <div className="text-sm text-slate-400">{metric.label}</div>
+                              <div className="text-2xl font-bold text-white font-mono">{metric.value}</div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <TrendingUp className="h-4 w-4 text-green-400" />
+                              <div className="w-12 h-8 bg-green-400/20 rounded flex items-end justify-center space-x-px">
+                                {[...Array(5)].map((_, i) => (
+                                  <motion.div
+                                    key={i}
+                                    className="w-1 bg-green-400 rounded-sm"
+                                    initial={{ height: 4 }}
+                                    animate={{ height: Math.random() * 20 + 8 }}
+                                    transition={{ duration: 1, delay: 2 + i * 0.1, repeat: Infinity, repeatType: "reverse" }}
+                                  />
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
-            {/* Enhanced Subheadline */}
+            {/* Professional Subheadline */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 3, ease: "easeOut" }}
-              className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto"
+              transition={{ duration: 0.8, delay: 2.5, ease: "easeOut" }}
+              className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-4xl mx-auto"
             >
               We architect, build, and deploy sophisticated AI systems that{' '}
-              <span className="text-gradient font-semibold">transform enterprise operations</span>. 
+              <span className="text-white font-semibold">transform enterprise operations</span>. 
               From strategy to implementation—delivering{' '}
-              <span className="text-gradient font-semibold">measurable business outcomes</span>.
+              <span className="text-white font-semibold">measurable business outcomes</span>.
             </motion.p>
 
-            {/* Enhanced CTA Buttons */}
+            {/* Enterprise CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 3.2, ease: "easeOut" }}
+              transition={{ duration: 0.8, delay: 2.7, ease: "easeOut" }}
               className="flex flex-col sm:flex-row gap-4 justify-center pt-8"
             >
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <Button
                   size="xl"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-2xl shadow-blue-500/25 relative group overflow-hidden"
+                  className="bg-slate-800 hover:bg-slate-700 text-white border border-slate-600 hover:border-slate-500 shadow-lg relative group"
                   rightIcon={<ArrowRight className="h-5 w-5" />}
                   href="/consultation"
                 >
-                  <span className="relative z-10">Schedule Consultation</span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  />
+                  <span className="relative z-10">Schedule Technical Consultation</span>
                 </Button>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <Button
                   size="xl"
                   variant="outline"
-                  icon={<Play className="h-5 w-5" />}
-                  className="border-gray-600 text-gray-300 hover:bg-gray-800/50 hover:text-white hover:border-gray-500 relative group"
+                  icon={<BarChart3 className="h-5 w-5" />}
+                  className="border-slate-600 text-slate-300 hover:bg-slate-800/50 hover:text-white hover:border-slate-500 relative group"
                 >
-                  <span>View Case Studies</span>
+                  <span>View Implementation Case Studies</span>
                 </Button>
               </motion.div>
             </motion.div>
           </div>
 
-          {/* Enhanced Stats Dashboard */}
+          {/* Enterprise Stats Dashboard */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.5, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 3, ease: "easeOut" }}
             className="mt-32 max-w-6xl mx-auto"
           >
-            <div className="glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden">
-              {/* Background Pattern */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-600/5" />
-              
+            <div className="bg-slate-900/30 border border-slate-800/50 rounded-2xl p-8 md:p-12 relative overflow-hidden backdrop-blur-sm">
               <div className="relative z-10">
                 <div className="text-center mb-12">
                   <motion.h2
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 3.7 }}
+                    transition={{ delay: 3.2 }}
                     className="text-3xl font-bold text-white mb-4"
                   >
-                    Proven Track Record
+                    Enterprise Performance Metrics
                   </motion.h2>
-                  <p className="text-lg text-gray-400">
-                    Delivering measurable results for enterprise clients
+                  <p className="text-lg text-slate-400">
+                    Delivering measurable results for Fortune 500 clients
                   </p>
                 </div>
 
@@ -382,29 +321,21 @@ const HeroSection: React.FC = () => {
                       key={stat.label}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.6, delay: 3.8 + index * 0.1, ease: "easeOut" }}
-                      className="text-center group cursor-pointer"
+                      transition={{ duration: 0.6, delay: 3.3 + index * 0.1, ease: "easeOut" }}
+                      className="text-center group"
                     >
                       <div className="relative">
-                        <motion.div
-                          whileHover={{ scale: 1.1 }}
-                          className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-lg group-hover:shadow-blue-500/25 transition-shadow duration-300"
-                        >
-                          <stat.icon className="h-8 w-8 text-white" />
-                        </motion.div>
+                        <div className="w-16 h-16 bg-slate-800 border border-slate-700 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-slate-700 transition-colors duration-300">
+                          <stat.icon className="h-8 w-8 text-slate-300" />
+                        </div>
                       </div>
-                      <motion.div
-                        initial={{ scale: 1 }}
-                        whileInView={{ scale: [1, 1.1, 1] }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="text-4xl font-bold text-gradient mb-2"
-                      >
+                      <div className="text-4xl font-bold text-white mb-2 font-mono">
                         {stat.value}
-                      </motion.div>
-                      <div className="text-lg font-semibold text-white mb-1">
+                      </div>
+                      <div className="text-lg font-semibold text-slate-300 mb-1">
                         {stat.label}
                       </div>
-                      <div className="text-sm text-gray-400">
+                      <div className="text-sm text-slate-500">
                         {stat.sublabel}
                       </div>
                     </motion.div>
@@ -414,18 +345,18 @@ const HeroSection: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Enhanced Capabilities Preview */}
+          {/* Enterprise Capabilities */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 4, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 3.5, ease: "easeOut" }}
             className="mt-24 max-w-6xl mx-auto"
           >
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-white mb-4">
                 Core Integration Capabilities
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg text-slate-400 max-w-2xl mx-auto">
                 Comprehensive AI development and integration services for enterprise clients
               </p>
             </div>
@@ -436,21 +367,17 @@ const HeroSection: React.FC = () => {
                   key={capability.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 4.2 + index * 0.1, ease: "easeOut" }}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  className="glass-card rounded-xl p-6 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 group cursor-pointer"
+                  transition={{ duration: 0.6, delay: 3.7 + index * 0.1, ease: "easeOut" }}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className="bg-slate-900/30 border border-slate-800/50 rounded-xl p-6 hover:bg-slate-900/50 transition-all duration-300 group cursor-pointer backdrop-blur-sm"
                 >
-                  <motion.div
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                    className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4"
-                  >
-                    <capability.icon className="h-6 w-6 text-white" />
-                  </motion.div>
-                  <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-gradient transition-all duration-300">
+                  <div className="w-12 h-12 bg-slate-800 border border-slate-700 rounded-lg flex items-center justify-center mb-4 group-hover:bg-slate-700 transition-colors">
+                    <capability.icon className="h-6 w-6 text-slate-300" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-slate-200 transition-colors">
                     {capability.title}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-slate-400 text-sm leading-relaxed">
                     {capability.description}
                   </p>
                 </motion.div>
@@ -458,25 +385,25 @@ const HeroSection: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Enhanced Trust Indicators */}
+          {/* Enterprise Trust Indicators */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 4.5, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 4, ease: "easeOut" }}
             className="mt-24 text-center"
           >
-            <p className="text-sm text-gray-500 mb-8">
-              Trusted by leading organizations across industries
+            <p className="text-sm text-slate-500 mb-8">
+              Trusted by leading Fortune 500 organizations
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-6 max-w-4xl mx-auto opacity-60">
+            <div className="grid grid-cols-2 md:grid-cols-6 gap-6 max-w-4xl mx-auto">
               {['Microsoft', 'Google', 'Amazon', 'Meta', 'Tesla', 'OpenAI'].map((company, index) => (
                 <motion.div
                   key={company}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 4.6 + index * 0.1 }}
-                  whileHover={{ scale: 1.1, opacity: 1 }}
-                  className="text-gray-400 font-medium text-sm glass-card px-4 py-3 rounded-lg hover:text-gray-300 transition-all duration-300 cursor-pointer"
+                  transition={{ duration: 0.5, delay: 4.1 + index * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
+                  className="text-slate-500 font-medium text-sm bg-slate-900/30 border border-slate-800/50 px-4 py-3 rounded-lg hover:text-slate-400 hover:bg-slate-900/50 transition-all duration-300 cursor-pointer backdrop-blur-sm"
                 >
                   {company}
                 </motion.div>
