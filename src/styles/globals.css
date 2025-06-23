@@ -75,7 +75,7 @@
   }
   
   .animate-pulse-slow {
-    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    animation: animate-pulse-slow 4s ease-in-out infinite;
   }
   
   .animate-float {
@@ -227,7 +227,7 @@ body {
 /* Selection Styling */
 ::selection {
   background: rgba(59, 130, 246, 0.3);
-  color: #ffffff;
+  color: white;
 }
 
 ::-moz-selection {
@@ -245,12 +245,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(180deg, #3b82f6, #8b5cf6);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  background: linear-gradient(180deg, #2563eb, #7c3aed);
 }
 
 /* Utility Classes */
@@ -306,8 +306,12 @@ body {
 }
 
 @keyframes grid-move {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(50px, 50px); }
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(40px, 40px);
+  }
 }
 
 /* Glow Effects */
@@ -325,12 +329,16 @@ body {
 
 /* Pulse Animation */
 .animate-pulse-slow {
-  animation: pulse-slow 4s ease-in-out infinite;
+  animation: animate-pulse-slow 4s ease-in-out infinite;
 }
 
-@keyframes pulse-slow {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.6; }
+@keyframes animate-pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 /* Floating Animation */
